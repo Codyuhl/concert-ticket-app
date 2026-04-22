@@ -1,1 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Ticket Purchase</h2>
 
+<form method="POST">
+    <label for="concert_id">Concert</label>
+    <select id="concert_id" name="concert_id" required>
+        <option value="">Select Concert</option>
+        {% for concert in concerts %}
+        <option value="{{ concert.concert_id }}">
+            {{ concert.artist.artist_name }} - {{ concert.venue.venue_name }} ({{ concert.venue.city }}, {{ concert.concert_date }})
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for="customer_id">Customer</label>
+    <select id="customer_id" name="customer_id" required>
+        <option value="">Select Customer</option>
+        {% for customer in customers %}
+        <option value="{{ customer.customer_id }}">{{ customer.customer_name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="seat_number">Seat Number</label>
+    <input id="seat_number" type="text" name="seat_number" required>
+
+    <label for="price">Price</label>
+    <input id="price" type="number" step="0.01" min="0" name="price" required>
+
+    <button type="submit">Add Ticket Purchase</button>
+</form>
+
+<h3>Recent Tickets</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Concert ID</th>
+        <th>Customer ID</th>
+        <th>Seat</th>
+        <th>Price</th>
+    </tr>
+    {% for ticket in tickets %}
+    <tr>
+        <td>{{ ticket.ticket_id }}</td>
+        <td>{{ ticket.concert_id }}</td>
+        <td>{{ ticket.customer_id }}</td>
+        <td>{{ ticket.seat_number }}</td>
+        <td>${{ "%.2f"|format(ticket.price|float) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
