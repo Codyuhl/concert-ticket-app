@@ -1,1 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Top 3 Artists by Ticket Revenue</h2>
 
+<table>
+    <tr>
+        <th>Artist Name</th>
+        <th>Total Revenue</th>
+    </tr>
+    {% for row in results %}
+    <tr>
+        <td>{{ row.artist_name }}</td>
+        <td>${{ "%.2f"|format(row.total_revenue|float) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
