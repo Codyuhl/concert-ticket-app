@@ -1,4 +1,4 @@
-# concert-ticket-app# Concert Ticket App
+# Concert Ticket App
 
 A Flask and PostgreSQL web application for managing concert ticket sales, artist schedules, customer purchases, and venue revenue analytics.
 
@@ -9,7 +9,7 @@ A Flask and PostgreSQL web application for managing concert ticket sales, artist
 - Add concerts
 - Add customers
 - Add ticket purchases
-- View concerts by city
+- View all concerts or filter by city
 - View concerts by artist
 - View total spending per customer
 - View top 3 artists by revenue
@@ -22,3 +22,22 @@ A Flask and PostgreSQL web application for managing concert ticket sales, artist
 - PostgreSQL
 - HTML/CSS
 - Render
+- GitHub
+
+## Local Development
+
+1. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the app:
+   ```bash
+   python app.py
+   ```
+4. Open:
+   http://127.0.0.1:5000
