@@ -1,1 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Venue</h2>
 
+<form method="POST">
+    <label for="venue_name">Venue Name</label>
+    <input id="venue_name" type="text" name="venue_name" required>
+
+    <label for="city">City</label>
+    <input id="city" type="text" name="city" required>
+
+    <label for="capacity">Capacity</label>
+    <input id="capacity" type="number" name="capacity" min="1" required>
+
+    <button type="submit">Add Venue</button>
+</form>
+
+<h3>Current Venues</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Venue Name</th>
+        <th>City</th>
+        <th>Capacity</th>
+    </tr>
+    {% for venue in venues %}
+    <tr>
+        <td>{{ venue.venue_id }}</td>
+        <td>{{ venue.venue_name }}</td>
+        <td>{{ venue.city }}</td>
+        <td>{{ venue.capacity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
