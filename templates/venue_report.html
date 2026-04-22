@@ -1,1 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Venue Performance Report (Bonus)</h2>
 
+<table>
+    <tr>
+        <th>Venue Name</th>
+        <th>City</th>
+        <th>Capacity</th>
+        <th>Concerts Hosted</th>
+        <th>Tickets Sold</th>
+        <th>Total Revenue</th>
+        <th>Average Ticket Price</th>
+    </tr>
+    {% for row in results %}
+    <tr>
+        <td>{{ row.venue_name }}</td>
+        <td>{{ row.city }}</td>
+        <td>{{ row.capacity }}</td>
+        <td>{{ row.num_concerts }}</td>
+        <td>{{ row.tickets_sold }}</td>
+        <td>${{ "%.2f"|format(row.total_revenue|float) }}</td>
+        <td>${{ "%.2f"|format(row.avg_ticket_price|float) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
