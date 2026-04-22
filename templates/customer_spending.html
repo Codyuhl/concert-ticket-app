@@ -1,1 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Customer Spending</h2>
 
+<form method="POST">
+    <label for="customer_id">Select Customer</label>
+    <select id="customer_id" name="customer_id">
+        <option value="">All Customers</option>
+        {% for customer in customers %}
+        <option value="{{ customer.customer_id }}" {% if selected_customer_id == customer.customer_id|string %}selected{% endif %}>
+            {{ customer.customer_name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Total Spent</th>
+    </tr>
+    {% for row in spending %}
+    <tr>
+        <td>{{ row.customer_id }}</td>
+        <td>{{ row.customer_name }}</td>
+        <td>${{ "%.2f"|format(row.total_spent|float) }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
