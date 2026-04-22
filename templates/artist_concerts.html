@@ -1,1 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>View Concerts by Artist</h2>
 
+<form method="POST">
+    <label for="artist_id">Select Artist</label>
+    <select id="artist_id" name="artist_id" required>
+        <option value="">Select Artist</option>
+        {% for artist in artists %}
+        <option value="{{ artist.artist_id }}" {% if selected_artist_id == artist.artist_id|string %}selected{% endif %}>
+            {{ artist.artist_name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+{% if results %}
+<table>
+    <tr>
+        <th>Artist Name</th>
+        <th>Venue Name</th>
+        <th>City</th>
+        <th>Concert Date</th>
+    </tr>
+    {% for row in results %}
+    <tr>
+        <td>{{ row.artist_name }}</td>
+        <td>{{ row.venue_name }}</td>
+        <td>{{ row.city }}</td>
+        <td>{{ row.concert_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
