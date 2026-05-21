@@ -1,43 +1,60 @@
-# Concert Ticket App
+# Concert Ticket Database App
 
-A Flask and PostgreSQL web application for managing concert ticket sales, artist schedules, customer purchases, and venue revenue analytics.
+Flask and PostgreSQL web application for managing concert ticket sales, artist schedules, customer purchases, and venue revenue analytics.
+
+## Project Overview
+
+This project is a database-backed web application designed for a small concert ticketing business. It allows users to manage artists, venues, concerts, customers, ticket purchases, and revenue-related reports.
+
+The app combines database design, SQL queries, backend development, and a simple web interface to support practical business operations and analytics.
+
+## Business Use Case
+
+A concert ticketing business needs to track events, customers, purchases, venues, and revenue. This application provides a centralized system for managing that information while also generating useful analytics for decision-making.
+
+Example business questions include:
+
+- Which artists generate the most revenue?
+- Which venues are performing best?
+- Which customers have spent the most?
+- Which concerts are available in a given city?
+- How can ticket sales activity be summarized for reporting?
 
 ## Features
 
-- Add artists
-- Add venues
-- Add concerts
-- Add customers
-- Add ticket purchases
-- View all concerts or filter by city
-- View concerts by artist
-- View total spending per customer
-- View top 3 artists by revenue
-- Bonus venue performance report
+- Add and manage artists
+- Add and manage venues
+- Add and manage concerts
+- Add and manage customers
+- Record ticket purchases
+- View customer spending summaries
+- Rank artists by revenue
+- Analyze venue performance
+- Filter concerts by location
+- Generate SQL-backed business reports
 
-## Tech Stack
+## Tools
 
-- Python
-- Flask
-- PostgreSQL
-- HTML/CSS
-- Render
-- GitHub
+Python · Flask · PostgreSQL · SQL · HTML/CSS · Render · Database Design
 
-## Local Development
+## Database Concepts Demonstrated
 
-1. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the app:
-   ```bash
-   python app.py
-   ```
-4. Open:
-   http://127.0.0.1:5000
+- Relational schema design
+- Primary and foreign keys
+- SQL joins
+- Aggregate queries
+- Revenue reporting
+- Customer purchase history
+- Web application integration with a PostgreSQL database
+
+## Repository Structure
+
+```text
+concert-ticket-app/
+├── app.py
+├── templates/
+├── static/
+├── schema.sql
+├── requirements.txt
+├── README.md
+└── render.yaml
